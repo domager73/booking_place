@@ -28,11 +28,15 @@ public class UserRequest {
             message = "Full name must be in format 'Name Surname Patronymic'")
     private String fullName;
 
+    @Pattern(regexp = "user|admin", message = "Role must be 'user' or 'admin'")
+    private String role = "user";
+
     public User toUserModel(){
         User user  = new User();
         user.setEmail(email);
         user.setPassword(password);
         user.setFullName(fullName);
+        user.setRole(role);
 
         return user;
     }
